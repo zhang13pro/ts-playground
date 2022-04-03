@@ -54,3 +54,16 @@ type ExampleV32 = EqualV3<never, never> // true
 type ExampleV34 = EqualV3<any, any> // true
 type ExampleV33 = EqualV3<any, number> // false
 type ExampleV35 = EqualV3<never, any> // false
+
+/** EqualV3 不能区分Object和object  */
+let upperCaseObject: Object
+let lowerCaseObject: object
+type isLowerCaseObjectExtendsUpperCaseObject = object extends Object
+  ? true
+  : false // true
+type isUpperCaseObjectExtendsLowerCaseObject = Object extends object
+  ? true
+  : false // true
+// @ts-ignore
+upperCaseObject = lowerCaseObject // ok
+lowerCaseObject = upperCaseObject // ok

@@ -29,3 +29,16 @@
   let y2 = y // 类型是 undefined
 }
 ```
+
+## Hell
+
+如何跳过静态类型检测
+
+- @ts-ignore
+- @ts-nocheck
+- any
+- 双重类型断言
+
+```ts
+getString(objString as unknown as string)
+```
